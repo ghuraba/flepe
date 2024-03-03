@@ -25,8 +25,3 @@
     background-color: green;
 }
 
-/* CSS for color change based on progress */
-.progress-bar .bar[data-full="true"] {
-    background-color: #000; /* Temporary color change */
-}
-
