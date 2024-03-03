@@ -12,7 +12,18 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// Function to update the progress bar
+function animateProgressBar(progressBar, duration, targetWidth) {
+    let progress = 0;
+    const increment = targetWidth / duration * 100; // Adjust the increment value for desired smoothness
+    const interval = setInterval(() => {
+        progress += increment;
+        progressBar.style.width = `${progress}%`;
+        if (progress >= targetWidth) {
+            clearInterval(interval);
+        }
+    }, 10); // Adjust the interval duration for desired speed
+}
+
 function updateProgressBar() {
     database.ref('votes').once('value', function(snapshot) {
         var votes = snapshot.val();
@@ -24,11 +35,13 @@ function updateProgressBar() {
             var flokiPercentage = (flokiVotes / totalVotes) * 100;
             var pepePercentage = (pepeVotes / totalVotes) * 100;
             
-            document.getElementById('floki-bar').style.width = flokiPercentage + '%';
-            document.getElementById('pepe-bar').style.width = pepePercentage + '%';
+            // Animate the progress bars
+            animateProgressBar(document.getElementById('floki-bar'), 2000, flokiPercentage);
+            animateProgressBar(document.getElementById('pepe-bar'), 2000, pepePercentage);
         }
     });
 }
+
 
 // Function to handle voting
 function vote(character) {
