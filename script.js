@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import * as firebase from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
 // Your web app's Firebase configuration
