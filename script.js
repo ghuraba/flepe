@@ -35,12 +35,19 @@ function updateProgressBar() {
             var flokiPercentage = (flokiVotes / totalVotes) * 100;
             var pepePercentage = (pepeVotes / totalVotes) * 100;
             
-            // Animate the progress bars
-            animateProgressBar(document.getElementById('floki-bar'), 2000, flokiPercentage);
-            animateProgressBar(document.getElementById('pepe-bar'), 2000, pepePercentage);
+            // Update Floki bar
+            var flokiBar = document.getElementById('floki-bar');
+            flokiBar.style.width = flokiPercentage + '%';
+            flokiBar.setAttribute('data-full', flokiPercentage >= 100);
+            
+            // Update Pepe bar
+            var pepeBar = document.getElementById('pepe-bar');
+            pepeBar.style.width = pepePercentage + '%';
+            pepeBar.setAttribute('data-full', pepePercentage >= 100);
         }
     });
 }
+
 
 
 // Function to handle voting
