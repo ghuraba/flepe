@@ -51,7 +51,7 @@ function updateProgressBar() {
             // Update the position of the image
             document.getElementById('voting-image').style.left = imagePositionPixels + 'px';
             
-            console.log("imagePositionPixels1: " + imagePositionPixels);
+            console.log("voting-image: " + voting-image);
 
         }
     });
