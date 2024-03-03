@@ -23,9 +23,9 @@
     background-color: #ddd;
     display: flex;
     border-radius: 10px !important;
-    position: relative;
-    margin-top: 20px;
+    position: relative; /* Ensure this is set */
 }
+
 
 .bar {
     height: 100%;
