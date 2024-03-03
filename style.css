@@ -13,8 +13,7 @@
 }
 
 .bar {
-    height: 100%;
-    transition: width 0.5s ease, background-color 0.5s ease; /* Smooth transition */
+    transition: width 0.5s ease;
 }
 
 .floki {
