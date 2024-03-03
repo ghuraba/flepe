@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-time Voting</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div class="voting-container">
 
-    <div class="progress-bar">
+        <div class="votes">
+                <div class="fight">
+                    
+                </div>
+                
+        <div class="image" data-option="FLOKI">
+            <button id="floki-vote" class="vote-button">
+              <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/1.png" />
+             <div style="font-size: 24px; font-weight: 900; color: #004700"> Vote for Floki</div>
+          </button>
+        </div>
+        <div  style="font-size: 60px; font-weight: 900; color: #004700; margin: auto">
+            VS
+        </div>
+        <div class="image" data-option="PEPE">
+            <button id="pepe-vote" class="vote-button">
+              <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/2.png" />
+             <div style="font-size: 24px; font-weight: 900; color: #004700"> Vote for Pepe</div>
+          </button>
+        </div>
+    </div>
+        
+        <div class="progress-bar">
     <div class="image-container floki">
         <img src="path_to_floki_image.png" alt="Floki">
         <div id="floki-votes" class="votes-count">0</div>
@@ -20,8 +34,8 @@
         <div id="pepe-votes" class="votes-count">0</div>
     </div>
 </div>
+
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="script.js"></script>
-</body>
-</html>
