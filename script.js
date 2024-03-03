@@ -24,8 +24,10 @@ function animateProgressBar(progressBar, duration, targetWidth) {
     }, 10); // Adjust the interval duration for desired speed
 }
 
+// script.js
 function updateProgressBar() {
-    database.ref('votes').once('value', function(snapshot) {
+    // Listen for changes in the votes
+    database.ref('votes').on('value', function(snapshot) {
         var votes = snapshot.val();
         var flokiVotes = votes.floki || 0;
         var pepeVotes = votes.pepe || 0;
@@ -48,8 +50,6 @@ function updateProgressBar() {
     });
 }
 
-
-
 // Function to handle voting
 function vote(character) {
     var votesRef = database.ref('votes');
@@ -65,12 +65,10 @@ function vote(character) {
 // Event listeners for voting buttons
 document.getElementById('floki-vote').addEventListener('click', function() {
     vote('floki');
-    updateProgressBar();
 });
 
 document.getElementById('pepe-vote').addEventListener('click', function() {
     vote('pepe');
-    updateProgressBar();
 });
 
 // Initial load
