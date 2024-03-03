@@ -8,18 +8,18 @@
 </head>
 <body>
 
-    <p id="floki-count">Floki: 0</p>
-<p id="pepe-count">Pepe: 0</p>
-
-    <div class="voting-container">
-        <button id="floki-vote" class="vote-button">Vote for Floki</button>
-        <button id="pepe-vote" class="vote-button">Vote for Pepe</button>
-        <div class="progress-bar">
-            <div id="floki-bar" class="bar floki"></div>
-            <div id="pepe-bar" class="bar pepe"></div>
-            <img id="voting-image" src="path/to/your/image.png" alt="Voting Image" style="position: absolute; left: 50%; transform: translateX(-50%);">
-        </div>
+    <div class="progress-bar">
+    <div class="image-container floki">
+        <img src="path_to_floki_image.png" alt="Floki">
+        <div id="floki-votes" class="votes-count">0</div>
     </div>
+    <div id="floki-bar" class="bar floki"></div>
+    <div id="pepe-bar" class="bar pepe"></div>
+    <div class="image-container pepe">
+        <img src="path_to_pepe_image.png" alt="Pepe">
+        <div id="pepe-votes" class="votes-count">0</div>
+    </div>
+</div>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="script.js"></script>
