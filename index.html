@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting System</title>
+    <title>Floki vs Pepe Voting</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="voting-container">
-        <div class="option" id="floki">
-            <button onclick="vote('floki')">Vote for FLOKI</button>
-        </div>
-        <div class="option" id="pepe">
-            <button onclick="vote('pepe')">Vote for PEPE</button>
-        </div>
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="floki-progress"></div>
-            <div class="progress-bar" id="pepe-progress"></div>
+        <button id="floki-vote" class="vote-button">Vote for Floki</button>
+        <button id="pepe-vote" class="vote-button">Vote for Pepe</button>
+        <div class="progress-bar">
+            <div id="floki-bar" class="bar floki"></div>
+            <div id="pepe-bar" class="bar pepe"></div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"></script>
-    <script type="module" src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
