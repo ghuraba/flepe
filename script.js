@@ -27,6 +27,11 @@ function updateProgressBar() {
             document.getElementById('floki-bar').style.width = flokiPercentage + '%';
             document.getElementById('pepe-bar').style.width = pepePercentage + '%';
         
+
+            // Update vote counts
+            document.getElementById('floki-count').textContent = 'Floki: ' + flokiVotes;
+            document.getElementById('pepe-count').textContent = 'Pepe: ' + pepeVotes;
+
         // Calculate the position of the image based on the total votes
             var imagePositionPercentage = (flokiPercentage + pepePercentage) / 2;
             var imagePositionPixels = imagePositionPercentage * document.getElementById('progress-bar').offsetWidth / 100;
