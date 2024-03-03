@@ -26,18 +26,10 @@ function updateProgressBar() {
             
             document.getElementById('floki-bar').style.width = flokiPercentage + '%';
             document.getElementById('pepe-bar').style.width = pepePercentage + '%';
-        
-
+            
             // Update vote counts
-            document.getElementById('floki-count').textContent = 'Floki: ' + flokiVotes;
-            document.getElementById('pepe-count').textContent = 'Pepe: ' + pepeVotes;
-
-        // Calculate the position of the image based on the total votes
-            var imagePositionPercentage = (flokiPercentage + pepePercentage) / 2;
-            var imagePositionPixels = imagePositionPercentage * document.getElementById('progress-bar').offsetWidth / 100;
-
-            // Update the position of the image
-            document.getElementById('voting-image').style.left = imagePositionPixels + 'px';
+            document.getElementById('floki-votes').textContent = flokiVotes;
+            document.getElementById('pepe-votes').textContent = pepeVotes;
         }
     });
 }
