@@ -44,7 +44,7 @@ function updateProgressBar() {
 
              // Calculate the average position of the image
             var averagePercentage = (flokiPercentage + pepePercentage) / 2;
-            var progressBarWidth = document.getElementById('progress-bar').offsetWidth;
+            var progressBarWidth = document.getElementById('progressBar').offsetWidth;
             console.log("progressBarWidth: " + progressBarWidth);
             var imagePositionPixels = (averagePercentage * progressBarWidth) / 100;
             console.log("imagePositionPixels: " + imagePositionPixels);
