@@ -9,6 +9,7 @@
     height: 20px;
     background-color: #ddd;
     display: flex;
+    position: relative; /* Add this */
 }
 
 .bar {
