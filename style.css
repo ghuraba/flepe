@@ -1,6 +1,12 @@
 .voting-container {
     background-color: #E8E71A;
+
     padding: 20px;
+}
+
+.voting-image {
+    width: 50px;
+    height: auto; /* Maintain aspect ratio */
 }
 
 .votes {
