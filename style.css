@@ -7,6 +7,7 @@
 .voting-image {
     width: 50px;
     height: auto; /* Maintain aspect ratio */
+    z-index: 100;
 }
 
 .votes {
