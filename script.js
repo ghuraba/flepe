@@ -12,7 +12,17 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// Function to update the progress bar
+function vote(character) {
+    var votesRef = database.ref('votes');
+    votesRef.transaction(function(currentVotes) {
+        if (currentVotes === null) {
+            currentVotes = {};
+        }
+        currentVotes[character] = (currentVotes[character] || 0) + 1;
+        return currentVotes;
+    });
+}
+
 function updateProgressBar() {
     database.ref('votes').on('value', function(snapshot) {
         var votes = snapshot.val();
@@ -26,23 +36,19 @@ function updateProgressBar() {
             
             document.getElementById('floki-bar').style.width = flokiPercentage + '%';
             document.getElementById('pepe-bar').style.width = pepePercentage + '%';
-            
-            // Update vote counts
-            document.getElementById('floki-votes').textContent = flokiVotes;
-            document.getElementById('pepe-votes').textContent = pepeVotes;
-        }
-    });
-}
 
-// Function to handle voting
-function vote(character) {
-    var votesRef = database.ref('votes');
-    votesRef.transaction(function(currentVotes) {
-        if (currentVotes === null) {
-            currentVotes = {};
+            // Update vote counts
+            document.getElementById('floki-vote-count').textContent = 'Votes for Floki: ' + flokiVotes;
+            document.getElementById('pepe-vote-count').textContent = 'Votes for Pepe: ' + pepeVotes;
+
+            // Calculate the average position of the image
+            var averagePercentage = (flokiPercentage + pepePercentage) / 2;
+            var progressBarWidth = document.getElementById('progress-bar').offsetWidth;
+            var imagePositionPixels = (averagePercentage * progressBarWidth) / 100;
+
+            // Update the position of the image
+            document.getElementById('voting-image').style.left = imagePositionPixels + 'px';
         }
-        currentVotes[character] = (currentVotes[character] || 0) + 1;
-        return currentVotes;
     });
 }
 
