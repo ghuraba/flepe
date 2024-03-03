@@ -25,7 +25,7 @@ function vote(character) {
 
 function updateProgressBar() {
     database.ref('votes').on('value', function(snapshot) {
-        console.log("ardi")
+        console.log("ardi2")
         var votes = snapshot.val();
         var flokiVotes = votes.floki || 0;
         var pepeVotes = votes.pepe || 0;
