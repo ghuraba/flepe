@@ -1,45 +1,57 @@
-import * as firebase from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-   apiKey: "AIzaSyDpsobzDm9421BbdvPDOInoZJf672FeZfw",
-  authDomain: "flepe-6dc02.firebaseapp.com",
-  databaseURL: "https://flepe-6dc02-default-rtdb.firebaseio.com",
-  projectId: "flepe-6dc02",
-  storageBucket: "flepe-6dc02.appspot.com",
-  messagingSenderId: "1026810643781",
-  appId: "1:1026810643781:web:ebdcd85be2dd41c8d4ea2c",
-  measurementId: "G-VW9GYGRB72"
+// script.js
+var config = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    databaseURL: "YOUR_DATABASE_URL",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
 };
+firebase.initializeApp(config);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+var database = firebase.database();
 
-window.onload = function() {
-    const votesRef = ref(db, 'votes');
-    onValue(votesRef, (snapshot) => {
-        const data = snapshot.val();
-        const flokiVotes = data.floki || 0;
-        const pepeVotes = data.pepe || 0;
-        updateProgressBars(flokiVotes, pepeVotes);
-    });
-};
-
-function vote(option) {
-    const votesRef = ref(db, 'votes');
-    set(votesRef, {
-        floki: option === 'floki' ? (data.floki || 0) + 1 : data.floki,
-        pepe: option === 'pepe' ? (data.pepe || 0) + 1 : data.pepe
+// Function to update the progress bar
+function updateProgressBar() {
+    database.ref('votes').once('value', function(snapshot) {
+        var votes = snapshot.val();
+        var flokiVotes = votes.floki || 0;
+        var pepeVotes = votes.pepe || 0;
+        var totalVotes = flokiVotes + pepeVotes;
+        
+        if (totalVotes > 0) {
+            var flokiPercentage = (flokiVotes / totalVotes) * 100;
+            var pepePercentage = (pepeVotes / totalVotes) * 100;
+            
+            document.getElementById('floki-bar').style.width = flokiPercentage + '%';
+            document.getElementById('pepe-bar').style.width = pepePercentage + '%';
+        }
     });
 }
 
-function updateProgressBars(flokiVotes, pepeVotes) {
-    const totalVotes = flokiVotes + pepeVotes;
-    const flokiPercentage = (flokiVotes / totalVotes) * 100;
-    const pepePercentage = (pepeVotes / totalVotes) * 100;
-
-    document.getElementById('floki-progress').style.width = `${flokiPercentage}%`;
-    document.getElementById('pepe-progress').style.width = `${pepePercentage}%`;
+// Function to handle voting
+function vote(character) {
+    var votesRef = database.ref('votes');
+    votesRef.transaction(function(currentVotes) {
+        if (currentVotes === null) {
+            currentVotes = {};
+        }
+        currentVotes[character] = (currentVotes[character] || 0) + 1;
+        return currentVotes;
+    });
 }
+
+// Event listeners for voting buttons
+document.getElementById('floki-vote').addEventListener('click', function() {
+    vote('floki');
+    updateProgressBar();
+});
+
+document.getElementById('pepe-vote').addEventListener('click', function() {
+    vote('pepe');
+    updateProgressBar();
+});
+
+// Initial load
+updateProgressBar();
