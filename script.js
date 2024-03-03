@@ -43,7 +43,7 @@ function updateProgressBar() {
             document.getElementById('pepe-vote-count').textContent = 'Votes for Pepe: ' + pepeVotes;
 
              // Calculate the average position of the image
-            var averagePercentage = (flokiPercentage + pepePercentage) / 2;
+            var averagePercentage = flokiPercentage;
             console.log("flokiPercentage: " + flokiPercentage);
             console.log("pepePercentage: " + pepePercentage);
             var progressBarWidth = document.getElementById('progressBar').offsetWidth;
