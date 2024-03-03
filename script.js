@@ -45,10 +45,14 @@ function updateProgressBar() {
              // Calculate the average position of the image
             var averagePercentage = (flokiPercentage + pepePercentage) / 2;
             var progressBarWidth = document.getElementById('progress-bar').offsetWidth;
+            console.log("progressBarWidth: " + progressBarWidth);
             var imagePositionPixels = (averagePercentage * progressBarWidth) / 100;
-
+            console.log("imagePositionPixels: " + imagePositionPixels);
             // Update the position of the image
             document.getElementById('voting-image').style.left = imagePositionPixels + 'px';
+            
+            console.log("imagePositionPixels1: " + imagePositionPixels);
+
         }
     });
 }
