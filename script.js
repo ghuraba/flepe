@@ -1,12 +1,12 @@
 // script.js
 var config = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    databaseURL: "YOUR_DATABASE_URL",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyDpsobzDm9421BbdvPDOInoZJf672FeZfw",
+    authDomain: "flepe-6dc02.firebaseapp.com",
+    databaseURL: "https://flepe-6dc02-default-rtdb.firebaseio.com",
+    projectId: "flepe-6dc02",
+    storageBucket: "flepe-6dc02.appspot.com",
+    messagingSenderId: "1026810643781",
+    appId: "1:1026810643781:web:ebdcd85be2dd41c8d4ea2c"
 };
 firebase.initializeApp(config);
 
