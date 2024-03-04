@@ -20,8 +20,19 @@ function vote(character) {
         }
         currentVotes[character] = (currentVotes[character] || 0) + 1;
         return currentVotes;
+    }).then(function() {
+        // Trigger the pop-up animation for the voted character
+        var popupElementId = character + '-vote-popup';
+        var popupElement = document.getElementById(popupElementId);
+        if (popupElement) {
+            popupElement.classList.add('show');
+            setTimeout(function() {
+                popupElement.classList.remove('show');
+            }, 1000); // Duration of the pop-up animation
+        }
     });
 }
+
 
 function updateProgressBar() {
     database.ref('votes').on('value', function(snapshot) {
