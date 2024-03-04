@@ -12,11 +12,11 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// Function to cast a vote
 function vote(character) {
     var votesRef = database.ref('votes');
     votesRef.transaction(function(currentVotes) {
-@@ -20,68 +20,46 @@ function vote(character) {
+        if (currentVotes === null) {
+            currentVotes = {};
         }
         currentVotes[character] = (currentVotes[character] || 0) + 1;
         return currentVotes;
@@ -32,37 +32,10 @@ function vote(character) {
             popupElement.style.display = 'none'; // Hide after animation
             popupElement.classList.remove('show'); // Remove the show class
         }, 1000); // Duration of the pop-up animationn
-        var popupElementId = character + '-vote-popup';
-        var popupElement = document.getElementById(popupElementId);
-        if (popupElement) {
-            popupElement.style.display = 'block';
-            popupElement.classList.add('show');
-            setTimeout(function() {
-                popupElement.style.display = 'none';
-                popupElement.classList.remove('show');
-            }, 1000); // Duration of the pop-up animation
         }
     });
 }
 
-// Listen for changes in the database to trigger pop-ups for all users
-database.ref('votes').on('value', function(snapshot) {
-    var votes = snapshot.val();
-    // Trigger pop-ups for all users based on the updated votes
-    if (votes.floki > previousVotes.floki) {
-        document.getElementById('floki-vote-popup').classList.add('show');
-        setTimeout(function() {
-            document.getElementById('floki-vote-popup').classList.remove('show');
-        }, 1000);
-    }
-    if (votes.pepe > previousVotes.pepe) {
-        document.getElementById('pepe-vote-popup').classList.add('show');
-        setTimeout(function() {
-            document.getElementById('pepe-vote-popup').classList.remove('show');
-        }, 1000);
-    }
-    previousVotes = votes; // Update previousVotes for future comparisons
-});
 
 function updateProgressBar() {
     database.ref('votes').on('value', function(snapshot) {
@@ -71,11 +44,11 @@ function updateProgressBar() {
         var flokiVotes = votes.floki || 0;
         var pepeVotes = votes.pepe || 0;
         var totalVotes = flokiVotes + pepeVotes;
-
+        
         if (totalVotes > 0) {
             var flokiPercentage = (flokiVotes / totalVotes) * 100;
             var pepePercentage = (pepeVotes / totalVotes) * 100;
-
+            
             document.getElementById('floki-bar').style.width = flokiPercentage + '%';
             document.getElementById('pepe-bar').style.width = pepePercentage + '%';
 
@@ -94,7 +67,7 @@ function updateProgressBar() {
             console.log("averagePercentage: " + averagePercentage);
             // Update the position of the image
             const voting = document.getElementById('voting-image').style.left = imagePositionPixels + 'px';
-
+            
             console.log("voting-image: " + voting);
 
         }
@@ -102,8 +75,6 @@ function updateProgressBar() {
 }
 
 // Event listeners for voting buttons
-// Initialization
-var previousVotes = {floki: 0, pepe: 0};
 document.getElementById('floki-vote').addEventListener('click', function() {
     vote('floki');
 });
