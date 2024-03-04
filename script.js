@@ -23,13 +23,15 @@ function vote(character) {
         console.log("currentVotes: " + currentVotes);
     }).then(function() {
         // Trigger the pop-up animation for the voted character
-        var popupElementId = character + '-vote-popup';
-        var popupElement = document.getElementById(popupElementId);
-        if (popupElement) {
-            popupElement.classList.add('show');
-            setTimeout(function() {
-                popupElement.classList.remove('show');
-            }, 1000); // Duration of the pop-up animation
+         var popupElementId = character + '-vote-popup';
+    var popupElement = document.getElementById(popupElementId);
+    if (popupElement) {
+        popupElement.style.display = 'block'; // Make it visible
+        popupElement.classList.add('show'); // Add the show class for animation
+        setTimeout(function() {
+            popupElement.style.display = 'none'; // Hide after animation
+            popupElement.classList.remove('show'); // Remove the show class
+        }, 1000); // Duration of the pop-up animationn
         }
     });
 }
