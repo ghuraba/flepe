@@ -54,3 +54,25 @@
     flex-direction: column;
     align-items: center;
 }
+
+.vote-popup {
+    position: absolute;
+    bottom: -30px; /* Start above the bottom of the container */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    display: none; /* Initially hidden */
+}
+
+.vote-popup.show {
+    bottom: 10px; /* Position it at the bottom of the container */
+    opacity: 1;
+    display: block;
+}
+
+.vote-popup img {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+}
+
