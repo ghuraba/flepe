@@ -1,28 +1,63 @@
 .voting-container {
     background-color: #E8E71A;
+
     padding: 20px;
+}
+
+.voting-image {
+    width: 50px;
+    height: auto; /* Maintain aspect ratio */
+    z-index: 100;
 }
 
 .votes {
     display: flex;
     justify-content: space-around;
+@@ -24,52 +17,21 @@
+    padding-bottom: 20px;
 }
 
-.vote-button {
-    border-radius: 50px;
-    cursor: pointer;
-    margin: 0;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+.progress-bar {
+    width: 100%;
+    height: 40px;
+    background-color: #ddd;
+    display: flex;
+    border-radius: 10px !important;
+    position: relative; /* Ensure this is set */
+}
+
+
+.bar {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.floki {
+    background-color: orange;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.pepe {
+    background-color: green;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .vote-popup {
     position: absolute;
+    bottom: 0; /* Position at the bottom of the parent container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
+    transition: all 1s ease-out;
     transition: all 0.5s ease-out;
 }
 
@@ -30,6 +65,9 @@
     opacity: 1;
 }
 
+.vote-popup img {
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
 .image {
     display: flex;
     flex-direction: column;
