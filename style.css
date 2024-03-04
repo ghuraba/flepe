@@ -13,7 +13,14 @@
 .votes {
     display: flex;
     justify-content: space-around;
-@@ -24,52 +17,21 @@
+}
+
+.vote-button {
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
     padding-bottom: 20px;
 }
 
@@ -53,12 +60,8 @@
     bottom: 0; /* Position at the bottom of the parent container */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     opacity: 0;
     transition: all 1s ease-out;
-    transition: all 0.5s ease-out;
 }
 
 .vote-popup.show {
@@ -68,8 +71,5 @@
 .vote-popup img {
     width: 100px; /* Adjust the size as needed */
     height: auto;
-.image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
+
