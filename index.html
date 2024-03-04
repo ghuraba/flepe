@@ -11,9 +11,14 @@
         <div class="votes">
             <div class="image" data-option="FLOKI" style="position: relative;">
                 <button id="floki-vote" class="vote-button">
+                 <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/1.png" />
+                 <div style="font-size: 24px; font-weight: 900; color: #004700"> Vote for Floki</div>
                     <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/1.png" />
                     <div style="font-size: 24px; font-weight: 900; color: #004700">Vote for Floki</div>
                 </button>
+<div class="vote-popup" id="floki-vote-popup" style="display: none;">
+        <img src="https://i.pinimg.com/originals/e0/62/d7/e062d78a4fa19ce8b7b033b3bb986f8f.gif" alt="Vote">
+    </div>
                 <div id="floki-vote-count">Votes for Floki: 0</div>
                 <div class="vote-popup" id="floki-vote-popup" style="display: none;">
                     <img src="path/to/heart-icon.png" alt="Vote">
@@ -21,14 +26,24 @@
             </div>
             <div class="image" data-option="PEPE" style="position: relative;">
                 <button id="pepe-vote" class="vote-button">
+                 <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/2.png" />
+                 <div style="font-size: 24px; font-weight: 900; color: #004700"> Vote for Pepe</div>
                     <img style="width:300px" src="https://flepe.io/wp-content/uploads/2024/03/2.png" />
                     <div style="font-size: 24px; font-weight: 900; color: #004700">Vote for Pepe</div>
                 </button>
+                <div class="vote-popup" id="pepe-vote-popup" style="display: none;">
+        <img src="https://i.pinimg.com/originals/e0/62/d7/e062d78a4fa19ce8b7b033b3bb986f8f.gif" alt="Vote">
+    </div>
                 <div id="pepe-vote-count">Votes for Pepe: 0</div>
                 <div class="vote-popup" id="pepe-vote-popup" style="display: none;">
                     <img src="path/to/heart-icon.png" alt="Vote">
                 </div>
             </div>
+        </div>
+        <div id="progressBar" class="progress-bar">
+            <div id="floki-bar" class="bar floki"></div>
+            <div id="pepe-bar" class="bar pepe"></div>
+            <img id="voting-image" src="https://i.ibb.co/DQpT05C/flepemiddle.png" alt="FLEPEFIGHT" style="position: absolute; left: 50%; transform: translateX(-50%); width: 60px; margin-top: -10px">
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
