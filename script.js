@@ -20,6 +20,7 @@ function vote(character) {
         }
         currentVotes[character] = (currentVotes[character] || 0) + 1;
         return currentVotes;
+        console.log("currentVotes: " + currentVotes);
     }).then(function() {
         // Trigger the pop-up animation for the voted character
         var popupElementId = character + '-vote-popup';
